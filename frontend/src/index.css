@@ -1,0 +1,14 @@
+@import './styles/theme.css';
+@import './styles/global.css';
+
+/* You can add project-wide overrides here if needed */
+:root {
+  /* Ensuring Vite default variables don't conflict or are updated */
+  color-scheme: light dark;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
