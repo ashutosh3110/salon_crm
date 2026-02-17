@@ -1,6 +1,6 @@
 /* Page specific styles for App component */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   text-align: left;
 }

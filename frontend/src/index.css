@@ -2,13 +2,16 @@
 @import './styles/global.css';
 
 /* You can add project-wide overrides here if needed */
-:root {
-  /* Ensuring Vite default variables don't conflict or are updated */
-  color-scheme: light dark;
+html,
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100%;
+  scroll-behavior: smooth;
 }
 
 #root {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: block;
+  width: 100%;
 }

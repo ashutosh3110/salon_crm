@@ -1,0 +1,483 @@
+:root {
+  /* Bloom & Blossom Color Palette - Updated to Black & #B85C5C */
+  --bb-bg-main: #000000;
+  --bb-bg-white: #101010;
+  --bb-bg-dark: #000000;
+
+  --bb-text-heading: #FFFFFF;
+  --bb-text-body: #d1d1d1;
+  --bb-text-muted: #a3a3a3;
+  --bb-text-white: #FFFFFF;
+
+  --bb-accent-gold: #B85C5C;
+  --bb-accent-peach: #d47a7a;
+  --bb-accent-soft: rgba(184, 92, 92, 0.1);
+
+  --bb-button-dark: #B85C5C;
+  --bb-button-hover: #9e4b4b;
+
+  --bb-font-heading: 'Playfair Display', serif;
+  --bb-font-body: 'Inter', sans-serif;
+
+  --bb-container-width: 95%;
+  --bb-section-padding: 80px 0;
+  --bb-section-padding-mobile: 60px 0;
+
+  --bb-transition: all 0.3s ease;
+  --bb-radius: 8px;
+  --bb-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Global Styles Overrides for Landing Page */
+.bb-landing-page {
+  font-family: var(--bb-font-body);
+  color: var(--bb-text-body);
+  background-color: var(--bb-bg-main);
+  line-height: 1.6;
+}
+
+.bb-landing-page h1,
+.bb-landing-page h2,
+.bb-landing-page h3,
+.bb-landing-page h4 {
+  font-family: var(--bb-font-heading);
+  color: var(--bb-text-heading);
+  font-weight: 600;
+}
+
+.bb-container {
+  max-width: var(--bb-container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.bb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--bb-transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  border: none;
+}
+
+.bb-btn-dark {
+  background-color: var(--bb-button-dark);
+  color: var(--bb-text-white);
+}
+
+.bb-btn-dark:hover {
+  background-color: var(--bb-button-hover);
+  transform: translateY(-2px);
+}
+
+.bb-btn-gold {
+  background: linear-gradient(135deg, #d47a7a 0%, #B85C5C 100%);
+  color: var(--bb-text-heading);
+}
+
+.bb-btn-gold:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.bb-btn-outline {
+  background: transparent;
+  border: 1px solid var(--bb-button-dark);
+  color: var(--bb-text-heading);
+}
+
+.bb-btn-outline:hover {
+  background-color: var(--bb-button-dark);
+  color: var(--bb-text-white);
+}
+
+/* Announcement Bar */
+.bb-announcement {
+  background-color: var(--bb-bg-dark);
+  color: var(--bb-text-white);
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Navbar */
+.bb-nav {
+  background-color: var(--bb-bg-main);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.bb-nav .bb-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bb-logo {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.bb-logo img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.bb-nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.bb-nav-links a {
+  color: var(--bb-text-heading);
+  font-weight: 400;
+  font-size: 0.95rem;
+  transition: var(--bb-transition);
+}
+
+.bb-nav-links a:hover {
+  color: var(--bb-accent-gold);
+}
+
+/* Hero Section */
+.bb-hero {
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+.bb-hero .bb-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.bb-hero-content h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.bb-hero-content p {
+  font-size: 1.1rem;
+  color: var(--bb-text-body);
+  margin-bottom: 35px;
+  max-width: 500px;
+}
+
+.bb-hero-ctas {
+  display: flex;
+  gap: 15px;
+}
+
+.bb-hero-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.bb-hero-circle {
+  width: 500px;
+  height: 500px;
+  background-color: var(--bb-accent-peach);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Welcome Section */
+.bb-welcome {
+  padding: var(--bb-section-padding);
+  background-color: var(--bb-bg-white);
+}
+
+.bb-welcome-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.bb-welcome-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.bb-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.bb-stat-item h3 {
+  font-size: 2rem;
+  color: var(--bb-accent-gold);
+  margin-bottom: 5px;
+}
+
+.bb-stat-item p {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Services Grid */
+.bb-services {
+  padding: var(--bb-section-padding);
+  text-align: center;
+}
+
+.bb-section-header {
+  margin-bottom: 60px;
+}
+
+.bb-section-header h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.bb-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.bb-service-card {
+  background-color: var(--bb-bg-white);
+  border-radius: var(--bb-radius);
+  overflow: hidden;
+  transition: var(--bb-transition);
+  box-shadow: var(--bb-shadow);
+  text-align: left;
+}
+
+.bb-service-card:hover {
+  transform: translateY(-10px);
+}
+
+.bb-service-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.bb-service-info {
+  padding: 25px;
+}
+
+.bb-service-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+}
+
+.bb-service-link {
+  color: var(--bb-accent-gold);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Testimonials */
+.bb-testimonials {
+  padding: var(--bb-section-padding);
+  background-color: var(--bb-bg-main);
+  text-align: center;
+}
+
+.bb-testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.bb-testimonial-card {
+  background: var(--bb-bg-white);
+  padding: 40px;
+  border-radius: var(--bb-radius);
+  box-shadow: var(--bb-shadow);
+  text-align: left;
+}
+
+.bb-testimonial-quote {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.bb-testimonial-author {
+  font-weight: 600;
+  color: var(--bb-text-heading);
+}
+
+/* FAQ */
+.bb-faq {
+  padding: var(--bb-section-padding);
+  background-color: var(--bb-bg-white);
+}
+
+.bb-faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bb-faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+}
+
+.bb-faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.bb-faq-answer {
+  margin-top: 15px;
+  color: var(--bb-text-muted);
+  display: block;
+  /* For simplicity, can be toggled with JS/React state */
+}
+
+/* Footer */
+.bb-footer {
+  background-color: var(--bb-bg-dark);
+  background-image: url("/footer_image/footerimage.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--bb-text-white);
+  padding: 80px 0 20px 0;
+}
+
+.bb-footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.bb-footer-col h6 {
+  color: var(--bb-text-white);
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.bb-footer-col ul {
+  list-style: none;
+}
+
+.bb-footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.bb-footer-col a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: var(--bb-transition);
+}
+
+.bb-footer-col a:hover {
+  color: var(--bb-accent-gold);
+  padding-left: 5px;
+}
+
+.bb-footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bb-fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+
+  .bb-hero .bb-container,
+  .bb-welcome-grid,
+  .bb-footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .bb-hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .bb-hero-image-wrapper {
+    order: -1;
+  }
+
+  .bb-hero-circle {
+    width: 350px;
+    height: 350px;
+  }
+
+  .bb-nav-links {
+    display: none;
+    /* Can add mobile menu later */
+  }
+
+  .bb-services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bb-testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .bb-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bb-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
