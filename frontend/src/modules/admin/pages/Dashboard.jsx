@@ -20,29 +20,29 @@ const AdminDashboard = () => {
             <div className="dashboard-grid">
                 <StatCard
                     title="Total Bookings"
-                    value="124"
-                    trend="+12% from last week"
+                    value="0"
+                    trend="No data yet"
                     trendUp={true}
                     icon={Calendar}
                 />
                 <StatCard
                     title="Today's Sales"
-                    value="AED 4,250"
-                    trend="+5% from yesterday"
+                    value="0.00"
+                    trend="No data yet"
                     trendUp={true}
                     icon={DollarSign}
                 />
                 <StatCard
                     title="New Customers"
-                    value="18"
-                    trend="-2% from last week"
+                    value="0"
+                    trend="No data yet"
                     trendUp={false}
                     icon={Users}
                 />
                 <StatCard
                     title="Active Staff"
-                    value="12"
-                    trend="All staff present"
+                    value="0"
+                    trend="No data yet"
                     trendUp={true}
                     icon={Scissors}
                 />
@@ -64,26 +64,11 @@ const AdminDashboard = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {[
-                                { customer: 'Sarah Johnson', service: 'Hair Coloring', time: 'Today, 2:00 PM', status: 'Confirmed' },
-                                { customer: 'Emily Clark', service: 'Manicure', time: 'Today, 3:30 PM', status: 'Pending' },
-                                { customer: 'Jessica White', service: 'Facial', time: 'Tomorrow, 10:00 AM', status: 'Confirmed' },
-                            ].map((row, idx) => (
-                                <tr key={idx} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                                    <td style={{ padding: '16px 0', color: 'var(--admin-text-main)' }}>{row.customer}</td>
-                                    <td style={{ padding: '16px 0' }}>{row.service}</td>
-                                    <td style={{ padding: '16px 0' }}>{row.time}</td>
-                                    <td style={{ padding: '16px 0' }}>
-                                        <span style={{
-                                            backgroundColor: row.status === 'Confirmed' ? 'rgba(74, 222, 128, 0.1)' : 'rgba(251, 191, 36, 0.1)',
-                                            color: row.status === 'Confirmed' ? '#4ade80' : '#fbbf24',
-                                            padding: '4px 8px',
-                                            borderRadius: '4px',
-                                            fontSize: '0.75rem'
-                                        }}>{row.status}</span>
-                                    </td>
-                                </tr>
-                            ))}
+                            <tr>
+                                <td colSpan="4" style={{ padding: '40px 0', textAlign: 'center', color: 'var(--admin-text-muted)' }}>
+                                    No recent appointments found
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -93,17 +78,9 @@ const AdminDashboard = () => {
                         <div className="card-title">Top Services</div>
                     </div>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                        {[
-                            { name: 'Hair Cut & Styling', sales: 'AED 1,200' },
-                            { name: 'Bridal Henna', sales: 'AED 950' },
-                            { name: 'Classic Facial', sales: 'AED 800' },
-                            { name: 'Gel Manicure', sales: 'AED 450' },
-                        ].map((item, idx) => (
-                            <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                <span style={{ color: 'var(--admin-text-muted)' }}>{item.name}</span>
-                                <span style={{ color: 'var(--admin-text-main)', fontWeight: '600' }}>{item.sales}</span>
-                            </div>
-                        ))}
+                        <div style={{ padding: '20px 0', textAlign: 'center', color: 'var(--admin-text-muted)' }}>
+                            No service data available
+                        </div>
                     </div>
                 </div>
             </div>

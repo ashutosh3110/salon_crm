@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Sun, Moon } from 'lucide-react';
+import { useTheme } from './context/ThemeContext';
 import './LandingPage.css';
 
 const LandingPage = () => {
+    const { themeMode, toggleThemeMode } = useTheme();
     const navigate = useNavigate();
     const [activeFaq, setActiveFaq] = useState(null);
+    const [isYearly, setIsYearly] = useState(false);
 
     const toggleFaq = (index) => {
         setActiveFaq(activeFaq === index ? null : index);
@@ -13,6 +17,41 @@ const LandingPage = () => {
     const handleBookCall = () => {
         navigate('/request-demo');
     };
+
+    const handleStartFreeTrial = () => {
+        navigate('/register?plan=free');
+    };
+
+    const plans = [
+        {
+            name: 'Free',
+            monthlyPrice: '0',
+            yearlyPrice: '0',
+            features: ['1 Outlet', '3 Staff Members', 'Basic Reports', 'Online Booking'],
+            popular: false
+        },
+        {
+            name: 'Pro',
+            monthlyPrice: '29',
+            yearlyPrice: '25',
+            features: ['3 Outlets', '10 Staff Members', 'Advanced Analytics', 'Inventory Management', 'SMS Notifications'],
+            popular: true
+        },
+        {
+            name: 'Premium',
+            monthlyPrice: '79',
+            yearlyPrice: '69',
+            features: ['Unlimited Outlets', 'Unlimited Staff', 'Marketing Suite', 'Loyalty Program', 'Custom Branding'],
+            popular: false
+        },
+        {
+            name: 'Enterprise',
+            monthlyPrice: 'Custom',
+            yearlyPrice: 'Custom',
+            features: ['Multi-Region Support', 'Dedicated Manager', 'Custom Integrations', '24/7 Priority Support'],
+            popular: false
+        }
+    ];
 
     const services = [
         {
@@ -83,11 +122,21 @@ const LandingPage = () => {
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#services">Our Services</a></li>
+                        <li><a href="#plans">Plans</a></li>
                         <li><a href="#packages">Packages</a></li>
                         <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#contact">Contact Us</a></li>
                     </ul>
-                    <button className="bb-btn bb-btn-dark" onClick={handleBookCall}>Online Booking</button>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+                        <button
+                            onClick={toggleThemeMode}
+                            style={{ background: 'none', border: 'none', color: 'var(--bb-text-heading)', cursor: 'pointer', padding: '5px' }}
+                            title={themeMode === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                        >
+                            {themeMode === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                        </button>
+                        <button className="bb-btn bb-btn-dark" onClick={() => navigate('/login')}>Login</button>
+                    </div>
                 </div>
             </nav>
 
@@ -100,8 +149,8 @@ const LandingPage = () => {
                             Step into a realm where beauty meets luxury. At Bloom & Blossom, the most reliable ladies salon in Mussafah, we combine science and art to reveal your authentic beauty.
                         </p>
                         <div className="bb-hero-ctas">
-                            <button className="bb-btn bb-btn-dark">About Us</button>
-                            <button className="bb-btn bb-btn-gold" onClick={handleBookCall}>Book a Call</button>
+                            <button className="bb-btn bb-btn-dark" onClick={handleStartFreeTrial}>Start Free Trial</button>
+                            <button className="bb-btn bb-btn-gold" onClick={handleBookCall}>Request Demo</button>
                         </div>
                     </div>
                     <div className="bb-hero-image-wrapper">
@@ -163,6 +212,56 @@ const LandingPage = () => {
                                     <h3>{service.title}</h3>
                                     <a href={service.link} className="bb-service-link">View Details →</a>
                                 </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Subscription Plans Section */}
+            <section id="plans" className="bb-pricing">
+                <div className="bb-container">
+                    <div className="bb-section-header">
+                        <h2>Flexible Plans for Every Salon</h2>
+                        <p>Choose the perfect plan to scale your business with Wapixo Salon CRM.</p>
+                    </div>
+
+                    <div className="bb-pricing-toggle">
+                        <span className={`bb-toggle-label ${!isYearly ? 'active' : ''}`}>Monthly</span>
+                        <label className="bb-toggle-switch">
+                            <input
+                                type="checkbox"
+                                checked={isYearly}
+                                onChange={() => setIsYearly(!isYearly)}
+                            />
+                            <span className="bb-slider"></span>
+                        </label>
+                        <span className={`bb-toggle-label ${isYearly ? 'active' : ''}`}>Yearly <span style={{ color: 'var(--bb-accent-gold)', fontSize: '0.8rem' }}> (Save 15%)</span></span>
+                    </div>
+
+                    <div className="bb-pricing-grid">
+                        {plans.map((plan, index) => (
+                            <div key={index} className={`bb-pricing-card ${plan.popular ? 'popular' : ''}`}>
+                                {plan.popular && <div className="bb-popular-badge">Most Popular</div>}
+                                <div className="bb-pricing-name">{plan.name}</div>
+                                <div className="bb-pricing-price">
+                                    <h2>
+                                        {plan.name === 'Enterprise' ? '' : '$'}
+                                        {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                                    </h2>
+                                    {plan.name !== 'Enterprise' && <span>/per month</span>}
+                                </div>
+                                <ul className="bb-pricing-features">
+                                    {plan.features.map((feature, fIndex) => (
+                                        <li key={fIndex}>{feature}</li>
+                                    ))}
+                                </ul>
+                                <button
+                                    className={`bb-btn ${plan.popular ? 'bb-btn-gold' : 'bb-btn-outline'} bb-pricing-btn`}
+                                    onClick={handleStartFreeTrial}
+                                >
+                                    {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
+                                </button>
                             </div>
                         ))}
                     </div>

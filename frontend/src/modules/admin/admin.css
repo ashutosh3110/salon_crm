@@ -8,9 +8,24 @@
     --admin-bg-hover: rgba(184, 92, 92, 0.1);
     --admin-border: #333333;
     --admin-accent: #B85C5C;
+    /* Fallback, ThemeContext will override */
     --admin-text-main: #ffffff;
     --admin-text-muted: #a3a3a3;
     --admin-card-bg: #1e1e1e;
+}
+
+[data-theme='light'] {
+    --admin-bg-dark: #f0f2f5;
+    --admin-bg-sidebar: #ffffff;
+    --admin-border: #e4e6eb;
+    --admin-text-main: #1c1e21;
+    --admin-text-muted: #65676b;
+    --admin-card-bg: #ffffff;
+    --color-background: #f0f2f5;
+    --color-surface: #ffffff;
+    --color-text: #1c1e21;
+    --color-text-muted: #65676b;
+    --color-border: #e4e6eb;
 }
 
 .admin-layout {
@@ -102,6 +117,41 @@
     width: 20px;
     height: 20px;
 }
+
+/* Sub-nav Styles */
+.sub-nav {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 4px 0;
+}
+
+.sub-nav-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 24px 8px 48px;
+    color: var(--admin-text-muted);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.sub-nav-item:hover {
+    color: var(--admin-text-main);
+    background-color: var(--admin-bg-hover);
+}
+
+.sub-nav-item.active {
+    color: var(--admin-accent);
+    background-color: var(--admin-bg-hover);
+}
+
+.sub-nav-item svg {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+}
+
 
 /* Main Content Area */
 .admin-main {

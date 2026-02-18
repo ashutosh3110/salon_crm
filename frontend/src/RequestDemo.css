@@ -12,6 +12,15 @@
     --rd-font-body: 'Inter', sans-serif;
 }
 
+[data-theme='light'] {
+    --rd-bg-main: #f0f2f5;
+    --rd-bg-card: #ffffff;
+    --rd-text-heading: #1a1a1a;
+    --rd-text-body: #4a4a4a;
+    --rd-text-muted: #65676b;
+    --rd-border: #e4e6eb;
+}
+
 .rd-page {
     background-color: var(--rd-bg-main);
     min-height: 100vh;
@@ -51,8 +60,8 @@
     background-color: var(--rd-bg-card);
     padding: 40px;
     border-radius: var(--rd-radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--rd-border);
 }
 
 .rd-header {
