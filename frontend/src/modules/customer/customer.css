@@ -1,0 +1,1084 @@
+:root {
+    --customer-primary: #B85C5C;
+    --customer-accent: #B85C5C;
+    --customer-bg: #000000;
+    --customer-card-bg: #121212;
+    --customer-text-main: #ffffff;
+    --customer-text-muted: #a3a3a3;
+    --customer-border: #222222;
+    --customer-nav-bg: #1a1a1a;
+}
+
+[data-theme='light'] {
+    --customer-bg: #f8f9fa;
+    --customer-card-bg: #ffffff;
+    --customer-text-main: #1a1a1a;
+    --customer-text-muted: #6c757d;
+    --customer-border: #e9ecef;
+    --customer-nav-bg: #ffffff;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-slide-up {
+    animation: slideUpFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.5s cubic-bezier(0.3, 0, 0.2, 1) forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+    opacity: 0;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.delay-4 {
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.delay-5 {
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+.customer-mobile-app {
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: var(--customer-bg);
+    background-attachment: fixed;
+    /* Premium Mesh Gradient Background */
+    background-image:
+        radial-gradient(at 0% 0%, hsla(353, 40%, 54%, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(353, 40%, 54%, 0.1) 0px, transparent 50%);
+    color: var(--customer-text-main);
+    padding-bottom: 90px;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Glassmorphism Navigation */
+.customer-bottom-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 460px;
+    height: 65px;
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+[data-theme='light'] .customer-bottom-nav {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.nav-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--customer-text-muted);
+    text-decoration: none;
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.nav-tab.active {
+    color: var(--customer-accent);
+}
+
+.nav-tab.active svg {
+    transform: translateY(-2px);
+}
+
+/* Home Section Styles */
+.home-container {
+    padding-top: 10px;
+}
+
+.home-header {
+    padding: 25px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-avatar-small {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid var(--customer-accent);
+    object-fit: cover;
+}
+
+.greeting h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.greeting p {
+    margin: 0;
+    color: var(--customer-text-muted);
+    font-size: 0.9rem;
+}
+
+.promo-hero-card {
+    height: 180px;
+    margin: 0 20px 25px 20px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.promo-hero-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent 80%);
+}
+
+.promo-content {
+    position: relative;
+    z-index: 2;
+    max-width: 60%;
+}
+
+.status-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.loyalty-badge {
+    background: linear-gradient(135deg, #d47a7a 0%, #B85C5C 100%);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 10px rgba(184, 92, 92, 0.3);
+}
+
+.membership-status {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.membership-status.active {
+    background: rgba(74, 222, 128, 0.1);
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+/* Card Styles */
+.mobile-card {
+    background-color: var(--customer-card-bg);
+    border-radius: 20px;
+    margin: 0 20px 20px 20px;
+    padding: 20px;
+    border: 1px solid var(--customer-border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-card:active {
+    transform: scale(0.98);
+}
+
+.section-title {
+    padding: 0 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.section-title span {
+    color: var(--customer-accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Quick Actions */
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 0 20px;
+    margin-bottom: 25px;
+}
+
+.action-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--customer-card-bg);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--customer-accent);
+    border: 1px solid var(--customer-border);
+    transition: all 0.2s ease;
+}
+
+.action-item span {
+    font-size: 0.7rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Banners */
+.banner-scroll {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 0 20px;
+    margin-bottom: 25px;
+    scrollbar-width: none;
+}
+
+.banner-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.offer-banner {
+    min-width: 280px;
+    height: 140px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Horizontal Service Scroll */
+.service-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    scrollbar-width: none;
+}
+
+.service-card-mini {
+    min-width: 120px;
+    background-color: var(--customer-card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--customer-border);
+    overflow: hidden;
+}
+
+.mini-img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+}
+
+.mini-info {
+    padding: 8px;
+}
+
+.mini-info h4 {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.mini-info p {
+    font-size: 0.7rem;
+    color: var(--customer-text-muted);
+    margin: 4px 0 0 0;
+}
+
+/* Booking Specific Styles */
+.booking-container {
+    padding-top: 20px;
+}
+
+.booking-step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.step-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--customer-border);
+    transition: all 0.3s ease;
+}
+
+.step-dot.active {
+    background: var(--customer-accent);
+    transform: scale(1.3);
+}
+
+.option-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 20px;
+}
+
+.selectable-card {
+    background: var(--customer-card-bg);
+    border: 1px solid var(--customer-border);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.selectable-card.selected {
+    border-color: var(--customer-accent);
+    background: rgba(184, 92, 92, 0.05);
+    box-shadow: 0 0 0 1px var(--customer-accent);
+}
+
+/* Home Salon For Women Section */
+.home-salon-section {
+    padding: 16px;
+    background: transparent;
+}
+
+.home-salon-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.service-card-women {
+    background-color: #FFF4EC;
+    border-radius: 20px;
+    height: 180px;
+    /* Fixed height for consistency */
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: none;
+}
+
+.service-card-title {
+    padding: 12px 12px 8px 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    text-align: left;
+}
+
+.service-card-img-container {
+    flex: 1;
+    padding: 0 8px 8px 8px;
+    /* Offset from edges for the rounded look */
+    overflow: hidden;
+}
+
+.service-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+
+.category-tabs {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.category-tab {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: var(--customer-card-bg);
+    border: 1px solid var(--customer-border);
+    white-space: nowrap;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.category-tab.active {
+    background: var(--customer-accent);
+    color: white;
+    border-color: var(--customer-accent);
+}
+
+.service-selection-card {
+    display: flex;
+    gap: 15px;
+    padding: 12px;
+    background: var(--customer-card-bg);
+    border-radius: 20px;
+    border: 1px solid var(--customer-border);
+    margin: 0 20px 12px 20px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.service-thumbnail {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.service-selection-card.selected {
+    border-color: var(--customer-accent);
+    background: rgba(184, 92, 92, 0.05);
+}
+
+.outlet-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+/* Proper Calendar Grid View */
+.calendar-body {
+    padding: 0 20px;
+}
+
+.calendar-header-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.month-label {
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.nav-arrows {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-arrow {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--customer-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.weekdays-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.weekday-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--customer-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dates-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.calendar-date-cell {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.calendar-date-cell.active {
+    background: var(--customer-accent);
+    color: white;
+}
+
+.calendar-date-cell.other-month {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.calendar-date-cell.has-availability::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: #4ade80;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+
+.slots-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--customer-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 25px 20px 12px 20px;
+}
+
+.availability-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.slot-item {
+    padding: 12px 5px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid var(--customer-border);
+    background: var(--customer-card-bg);
+}
+
+.slot-item.booked {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--customer-text-muted);
+    opacity: 0.4;
+    text-decoration: line-through;
+}
+
+.slot-item.selected {
+    background: var(--customer-accent);
+    color: white;
+    border-color: var(--customer-accent);
+}
+
+.full-calendar-modal {
+    position: fixed;
+    inset: 0;
+    background: var(--customer-bg);
+    z-index: 2000;
+    overflow-y: auto;
+    padding-bottom: 40px;
+}
+
+.modal-close-header {
+    position: sticky;
+    top: 0;
+    background: var(--customer-bg);
+    z-index: 10;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--customer-border);
+}
+
+.staff-scroll {
+    display: flex;
+    gap: 15px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-bottom: 25px;
+}
+
+.staff-avatar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 70px;
+    cursor: pointer;
+}
+
+.avatar-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.selected .avatar-circle {
+    border-color: var(--customer-accent);
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.time-slot {
+    padding: 12px;
+    text-align: center;
+    background: var(--customer-card-bg);
+    border: 1px solid var(--customer-border);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.time-slot.selected {
+    background: var(--customer-accent);
+    color: white;
+    border-color: var(--customer-accent);
+}
+
+.sticky-bottom-btn {
+    position: fixed;
+    bottom: 95px;
+    /* Above nav */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 460px;
+    background: var(--customer-accent);
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 10px 20px rgba(184, 92, 92, 0.3);
+    cursor: pointer;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--customer-border);
+}
+
+/* Activity / Appointments Styles */
+.activity-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin: 10px 20px 25px 20px;
+    background: var(--customer-card-bg);
+    padding: 5px;
+    border-radius: 12px;
+    border: 1px solid var(--customer-border);
+}
+
+.activity-tab {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--customer-text-muted);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.activity-tab.active {
+    background: var(--customer-accent);
+    color: white;
+    box-shadow: 0 4px 12px rgba(184, 92, 92, 0.2);
+}
+
+.appointment-card {
+    position: relative;
+    border-left: 4px solid var(--customer-accent);
+}
+
+.appointment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.apt-status {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.apt-status.confirmed {
+    background: rgba(74, 222, 128, 0.1);
+    color: #4ade80;
+}
+
+.apt-status.completed {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+}
+
+.apt-status.cancelled {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.apt-service-list {
+    margin: 10px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.apt-service-item {
+    font-size: 0.9rem;
+    color: var(--customer-text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.apt-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--customer-border);
+}
+
+.rating-stars {
+    display: flex;
+    gap: 4px;
+    color: #fbbf24;
+}
+
+.photo-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.comp-img {
+    height: 80px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.comp-label {
+    font-size: 0.6rem;
+    text-align: center;
+    color: var(--customer-text-muted);
+    margin-top: 4px;
+}
+
+/* Premium Availability Button */
+.view-book-btn {
+    width: calc(100% - 40px);
+    margin: 10px 20px 25px 20px;
+    padding: 16px;
+    background: rgba(184, 92, 92, 0.08);
+    color: var(--customer-accent);
+    border: 1.5px solid rgba(184, 92, 92, 0.3);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.view-book-btn:active {
+    transform: scale(0.96);
+    background: rgba(184, 92, 92, 0.15);
+}
+
+.view-book-btn:hover {
+    border-color: var(--customer-accent);
+    background: rgba(184, 92, 92, 0.12);
+}
+
+/* Testimonials */
+.testimonial-scroll {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 0 20px;
+    margin-bottom: 30px;
+    scrollbar-width: none;
+}
+
+.testimonial-card {
+    min-width: 250px;
+    background: var(--customer-card-bg);
+    border: 1px solid var(--customer-border);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.client-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.quote-icon {
+    font-size: 1.5rem;
+    color: var(--customer-accent);
+    opacity: 0.3;
+    line-height: 1;
+}
+
+/* Benefit/Feature Icons */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 0 20px;
+    margin-bottom: 30px;
+}
+
+.benefit-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--customer-border);
+    padding: 15px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.benefit-item svg {
+    margin-bottom: 10px;
+    color: var(--customer-accent);
+}
+
+.benefit-item h4 {
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+.benefit-item p {
+    margin: 4px 0 0 0;
+    font-size: 0.7rem;
+    color: var(--customer-text-muted);
+}
+
+/* Offers & Coupons */
+.offer-card {
+    background: var(--customer-card-bg);
+    border: 1px solid var(--customer-border);
+    margin: 0 20px 20px 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-image-container {
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+}
+
+.offer-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.offer-card:hover .offer-img {
+    transform: scale(1.1);
+}
+
+.offer-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--customer-accent);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.offer-details {
+    padding: 20px;
+}
+
+.promo-code-box {
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(184, 92, 92, 0.05);
+    border: 1px dashed var(--customer-accent);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.code-text {
+    font-family: 'Monospace', monospace;
+    font-weight: 800;
+    color: var(--customer-accent);
+    letter-spacing: 1px;
+}
+
+.copy-btn {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--customer-text-muted);
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.discount-circle {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    width: 80px;
+    height: 80px;
+    background: #fbbf24;
+    border-radius: 50%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 15px;
+    color: #000;
+    font-weight: 900;
+    font-size: 1.2rem;
+    transform: rotate(15deg);
+}

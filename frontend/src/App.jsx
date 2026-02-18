@@ -33,6 +33,15 @@ import FinanceExpenses from './modules/admin/pages/FinanceExpenses';
 import FinanceCashBank from './modules/admin/pages/FinanceCashBank';
 import FinanceEodReport from './modules/admin/pages/FinanceEodReport';
 
+// Customer App Imports
+import CustomerLayout from './modules/customer/CustomerLayout';
+import CustomerHome from './modules/customer/pages/Home';
+import CustomerBook from './modules/customer/pages/Book';
+import CustomerActivity from './modules/customer/pages/Appointments';
+import CustomerOffers from './modules/customer/pages/Offers';
+import CustomerLogin from './modules/customer/pages/LoginPage';
+import { Profile as CustomerProfile } from './modules/customer/pages/Placeholders';
+
 export function App() {
     return (
         <Router>
@@ -87,6 +96,16 @@ export function App() {
                         <Route path="eod-report" element={<FinanceEodReport />} />
                     </Route>
                     <Route path="*" element={<div style={{ padding: '30px' }}><h2>Coming Soon</h2><p>This module is currently under development.</p></div>} />
+                </Route>
+
+                {/* Customer Mobile App Routes */}
+                <Route path="/app/login" element={<CustomerLogin />} />
+                <Route path="/app" element={<CustomerLayout />}>
+                    <Route index element={<CustomerHome />} />
+                    <Route path="book" element={<CustomerBook />} />
+                    <Route path="appointments" element={<CustomerActivity />} />
+                    <Route path="offers" element={<CustomerOffers />} />
+                    <Route path="profile" element={<CustomerProfile />} />
                 </Route>
             </Routes>
         </Router>
